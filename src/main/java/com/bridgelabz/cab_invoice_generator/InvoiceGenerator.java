@@ -8,4 +8,12 @@ public class InvoiceGenerator {
         //calculation of total fare
         return distance * RS_PER_KILOMETER + time * RS_PER_MINUTE;
     }
+    //Step2 - Calculating Multiple rides
+    public double calculatefare(Ride[] rides) {
+        double totalFare = 0;
+        for (Ride ride:rides) {
+            totalFare += this.calculatefare(ride.distance , ride.time);
+        }
+        return totalFare;
+    }
 }
